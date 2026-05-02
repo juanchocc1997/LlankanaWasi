@@ -3,19 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LlankanaWasi - Comprensión Lectora</title>
+    <title>LlankanaWasi | Campus Virtual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f4; }
-        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; }
-        .btn-classroom { background-color: #2e7d32; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        /* Barra de navegación superior */
+        header { background: #000; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 1px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #00bcd4; }
+        .btn-top { background: #00bcd4; padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+
+        /* Banner Principal */
+        .hero { padding: 80px 10%; background: #fff; }
+        .hero h1 { font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; color: #555; max-width: 800px; line-height: 1.6; }
+
+        /* Caja Azul estilo UNIR */
+        .campus-box { 
+            background: linear-gradient(90deg, #00adef 0%, #0055a5 100%);
+            margin: 50px 10%; padding: 40px; border-radius: 10px 10px 50px 10px;
+            display: flex; justify-content: space-between; align-items: center; color: white;
+        }
+        .campus-box h2 { font-size: 2rem; }
+        .btn-campus { 
+            background: white; color: #0055a5; padding: 15px 30px; 
+            border-radius: 30px; text-decoration: none; font-weight: 700;
+            display: flex; align-items: center; gap: 10px; transition: 0.3s;
+        }
+        .btn-campus:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* Sección de Recursos */
+        .resources { padding: 50px 10%; background: #f9f9f9; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 25px; border-radius: 10px; border-top: 5px solid #00adef; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 15px; color: #333; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenido a LlankanaWasi</h1>
-        <p>Tu casa de herramientas para la comprensión lectora.</p>
-        <a href="AQUÍ_PEGA_EL_LINK_DE_TU_CLASSROOM" class="btn-classroom">ACCEDER AL AULA VIRTUAL</a>
+
+    <header>
+        <div class="logo">LLANKANA<span style="color:#00adef">WASI</span></div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Recursos</a>
+            <a href="#">Guías</a>
+            <a href="LINK_CLASSROOM" class="btn-top">ACCESO ESTUDIANTES</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Campus Virtual</h1>
+        <p>Una plataforma diseñada para mejorar el aprendizaje. Todo lo que necesitas para aprender está en el <strong>Campus LlankanaWasi</strong>, tu espacio colaborativo digital para recursos de comprensión lectora.</p>
+    </section>
+
+    <div class="campus-box">
+        <h2>Aula Virtual Classroom</h2>
+        <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2"btn-campus">ACCEDER AL CAMPUS →</a>
     </div>
+
+    <section class="resources">
+        <div class="card">
+            <h3>Biblioteca Digital</h3>
+            <p>Accede a todos los textos y lecturas seleccionadas para tu nivel.</p>
+        </div>
+        <div class="card">
+            <h3>Recursos Educativos</h3>
+            <p>Descarga guías, infografías y material de apoyo para tus tareas.</p>
+        </div>
+        <div class="card">
+            <h3>Foro de Dudas</h3>
+            <p>¿No entiendes algo? Conéctate con tus tutores en tiempo real.</p>
+        </div>
+    </section>
+
 </body>
 </html>
