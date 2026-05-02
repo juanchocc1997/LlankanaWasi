@@ -4,78 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LlankanaWasi | Campus Virtual</title>
+    <!-- Fuentes e Iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #ffffff; color: #333; }
         
-        /* Barra de navegación superior */
-        header { background: #000; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 1px; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: #00bcd4; }
-        .btn-top { background: #00bcd4; padding: 8px 15px; border-radius: 5px; font-weight: 600; }
+        /* HEADER - Rojo y Negro */
+        header { background: #000; color: white; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .logo { font-weight: 700; font-size: 1.6rem; letter-spacing: 1px; }
+        .logo span { color: #e53935; } /* Rojo principal */
+        nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 0.9rem; font-weight: 400; transition: 0.3s; }
+        nav a:hover { color: #ff5252; }
+        .btn-acceso { background: #e53935; padding: 10px 20px; border-radius: 4px; font-weight: 600; color: #fff; }
 
-        /* Banner Principal */
-        .hero { padding: 80px 10%; background: #fff; }
-        .hero h1 { font-size: 3rem; color: #1a1a1a; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: #555; max-width: 800px; line-height: 1.6; }
+        /* HERO SECTION */
+        .hero { padding: 100px 8% 60px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 25px; color: #1a1a1a; }
+        .hero-text p { font-size: 1.1rem; color: #666; line-height: 1.8; margin-bottom: 30px; }
+        .hero-image { flex: 1; text-align: right; }
+        .hero-image img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 20px 20px 0px #fff5f5; }
 
-        /* Caja Azul estilo UNIR */
-        .campus-box { 
-            background: linear-gradient(90deg, #00adef 0%, #0055a5 100%);
-            margin: 50px 10%; padding: 40px; border-radius: 10px 10px 50px 10px;
+        /* BANNER CAMPUS - Gradiente Rojo */
+        .campus-banner { 
+            background: linear-gradient(90deg, #ff5252 0%, #b71c1c 100%);
+            margin: 40px 8%; padding: 50px; border-radius: 15px 15px 80px 15px;
             display: flex; justify-content: space-between; align-items: center; color: white;
         }
-        .campus-box h2 { font-size: 2rem; }
-        .btn-campus { 
-            background: white; color: #0055a5; padding: 15px 30px; 
-            border-radius: 30px; text-decoration: none; font-weight: 700;
-            display: flex; align-items: center; gap: 10px; transition: 0.3s;
+        .campus-banner h2 { font-size: 2.2rem; font-weight: 600; }
+        .btn-campus-white { 
+            background: #ffffff; color: #b71c1c; padding: 18px 35px; 
+            border-radius: 50px; text-decoration: none; font-weight: 700;
+            font-size: 1.1rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .btn-campus:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-campus-white:hover { background: #f0f0f0; transform: translateY(-3px); }
 
-        /* Sección de Recursos */
-        .resources { padding: 50px 10%; background: #f9f9f9; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 25px; border-radius: 10px; border-top: 5px solid #00adef; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card h3 { margin-bottom: 15px; color: #333; }
+        /* CARDS - Bordes Rojos */
+        .features { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; background: #fffaf9; }
+        .card { background: white; padding: 40px; border-radius: 12px; transition: 0.3s; border-bottom: 4px solid #e53935; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .card i { font-size: 2.5rem; color: #e53935; margin-bottom: 20px; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 15px; }
+        .card p { color: #777; line-height: 1.6; }
+
+        /* FOOTER */
+        footer { background: #1a1a1a; color: #888; padding: 60px 8% 30px; text-align: center; }
+        .footer-content { border-bottom: 1px solid #333; padding-bottom: 40px; margin-bottom: 30px; }
+        .footer-logo { color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+        .social-links a { color: #888; margin: 0 15px; font-size: 1.5rem; transition: 0.3s; }
+        .social-links a:hover { color: #ff5252; }
+        .copy { font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">LLANKANA<span style="color:#00adef">WASI</span></div>
+        <div class="logo">LLANKANA<span>WASI</span></div>
         <nav>
             <a href="#">Inicio</a>
             <a href="#">Recursos</a>
-            <a href="#">Guías</a>
-            <a href="LINK_CLASSROOM" class="btn-top">ACCESO ESTUDIANTES</a>
+            <a href="#">Blog</a>
+            <a href="TU_LINK_CLASSROOM" class="btn-acceso">ACCESO ESTUDIANTES</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Campus Virtual</h1>
-        <p>Una plataforma diseñada para mejorar el aprendizaje. Todo lo que necesitas para aprender está en el <strong>Campus LlankanaWasi</strong>, tu espacio colaborativo digital para recursos de comprensión lectora.</p>
+        <div class="hero-text">
+            <h1>Campus<br><span style="color:#e53935">Virtual</span></h1>
+            <p>Descubre un ecosistema digital diseñado para potenciar tu comprensión lectora. Recursos interactivos y herramientas críticas para la próxima generación de lectores.</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudiantes leyendo">
+        </div>
     </section>
 
-    <div class="campus-box">
+    <div class="campus-banner">
         <h2>Aula Virtual Classroom</h2>
-        <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2"btn-campus">ACCEDER AL CAMPUS →</a>
+        <a href="TU_LINK_CLASSROOM" class="btn-campus-white">IR AL CAMPUS <i class="fas fa-arrow-right"></i></a>
     </div>
 
-    <section class="resources">
+    <section class="features">
         <div class="card">
+            <i class="fas fa-book-open"></i>
             <h3>Biblioteca Digital</h3>
-            <p>Accede a todos los textos y lecturas seleccionadas para tu nivel.</p>
+            <p>Textos seleccionados que enganchan, analizados para mejorar tu capacidad crítica.</p>
         </div>
         <div class="card">
-            <h3>Recursos Educativos</h3>
-            <p>Descarga guías, infografías y material de apoyo para tus tareas.</p>
+            <i class="fas fa-file-download"></i>
+            <h3>Guías Pro</h3>
+            <p>Material exclusivo descargable para dominar cualquier lectura en tiempo récord.</p>
         </div>
         <div class="card">
-            <h3>Foro de Dudas</h3>
-            <p>¿No entiendes algo? Conéctate con tus tutores en tiempo real.</p>
+            <i class="fas fa-bolt"></i>
+            <h3>Retos de Lectura</h3>
+            <p>Ponte a prueba con nuestra comunidad y sube de nivel tus habilidades.</p>
         </div>
     </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">LLANKANA<span>WASI</span></div>
+            <p>Empoderando tu lectura, transformando tu futuro.</p>
+            <div class="social-links" style="margin-top: 20px;">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <p class="copy">&copy; 2026 LlankanaWasi. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
