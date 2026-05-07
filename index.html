@@ -4,65 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido | LlankanaWasi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* FONDO ANIMADO PRO */
         body { 
             height: 100vh; 
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
-            font-family: 'Poppins', sans-serif; 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            overflow: hidden;
         }
-        .main-card { 
-            background: white; 
-            padding: 60px; 
-            border-radius: 30px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
-            text-align: center; 
-            max-width: 500px;
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* TARJETA EFECTO CRISTAL (GLASSMORPHISM) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 40px;
+            padding: 60px 40px;
+            text-align: center;
             width: 90%;
+            max-width: 550px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
         }
-        h1 { font-size: 2.5rem; color: #1a1a1a; margin-bottom: 10px; }
-        h1 span { color: #e53935; }
-        p { color: #666; margin-bottom: 40px; font-size: 1.1rem; }
-        
-        .btn-portal { 
-            display: block; 
-            background: #e53935; 
+
+        h1 { 
+            font-size: 3.5rem; 
             color: white; 
-            padding: 20px; 
-            border-radius: 15px; 
-            text-decoration: none; 
-            font-size: 1.4rem; 
-            font-weight: 800;
-            margin-bottom: 20px; 
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(229, 57, 53, 0.3);
+            font-weight: 900; 
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 15px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .btn-portal:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(229, 57, 53, 0.4); background: #b71c1c; }
-        
-        .btn-info { 
-            display: inline-block; 
-            color: #888; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
+        h1 span { color: #000; }
+
+        p { 
+            color: rgba(255, 255, 255, 0.9); 
+            margin-bottom: 40px; 
+            font-size: 1.1rem; 
+            font-weight: 400;
+        }
+
+        /* BOTÓN DE IMPACTO TOTAL */
+        .btn-main {
+            display: block;
+            background: #fff;
+            color: #e73c7e;
+            padding: 22px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05) rotate(-1deg);
+            background: #000;
+            color: #fff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        /* BOTÓN SECUNDARIO */
+        .btn-sub {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
-            border-bottom: 2px solid transparent;
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
             transition: 0.3s;
         }
-        .btn-info:hover { color: #e53935; border-bottom: 2px solid #e53935; }
+
+        .btn-sub:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #fff;
+        }
+
     </style>
 </head>
 <body>
-    <div class="main-card">
+
+    <div class="glass-card">
         <h1>LLANKANA<span>WASI</span></h1>
-        <p>Tu casa de herramientas para la comprensión lectora.</p>
+        <p>Potencia tu mente. Domina la lectura.</p>
         
-        <a href="TU_LINK_DE_CLASSROOM" class="btn-portal">ACCEDER AL AULA VIRTUAL</a>
+        <a href="TU_LINK_DE_CLASSROOM" class="btn-main">ENTRAR AL CAMPUS VIRTUAL</a>
         
-        <a href="inicio.html" class="btn-info">Conocer más sobre la plataforma →</a>
+        <a href="inicio.html" class="btn-sub">Conocer plataforma →</a>
     </div>
+
 </body>
 </html>
