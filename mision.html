@@ -7,14 +7,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --main-red: #e53935; --dark-text: #1a1a1a; }
+        :root { --main-red: #e53935; --dark-text: #1a1a1a; --text-color: #555; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
-        /* HEADER */
+        /* --- FONDO MEJORADO DE LA PÁGINA --- */
+        body { 
+            background-color: #fdfdfd; /* Gris ultra claro de base */
+            /* Patrón de puntos sutil para romper el blanco plano */
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow-x: hidden;
+        }
+
+        /* HEADER (IGUAL PARA CONTINUIDAD) */
         header { 
             background: #000; padding: 15px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 3px solid var(--main-red); 
+            position: relative; z-index: 10;
         }
         .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: white; }
         .logo span { color: var(--main-red); }
@@ -25,67 +35,82 @@
         }
         .back-btn:hover { background: var(--main-red); border-color: var(--main-red); }
 
-        /* HERO SECTION */
+        /* SECCIÓN HERO (ZONA DE IMPACTO) */
         .mission-hero { 
-            padding: 80px 8% 40px; text-align: center; 
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://www.transparenttextures.com/patterns/cubes.png');
+            padding: 90px 8% 50px; text-align: center; 
+            position: relative;
         }
-        .mission-hero h1 { font-size: 3rem; color: var(--dark-text); margin-bottom: 20px; font-weight: 800; }
-        .mission-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #555; line-height: 1.6; }
+        /* Degradado sutil en la parte superior del Hero */
+        .mission-hero::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fdfdfd 100%);
+            z-index: -1;
+        }
+        .mission-hero h1 { font-size: 3.2rem; color: var(--dark-text); margin-bottom: 25px; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+        .mission-hero p { font-size: 1.25rem; max-width: 850px; margin: 0 auto; color: var(--text-color); line-height: 1.7; }
 
-        /* TARJETAS DE OBJETIVOS */
+        /* TARJETAS DE OBJETIVOS (DESTACADAS) */
         .goals-container { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; padding: 40px 10% 60px; 
-            background: white;
+            gap: 35px; padding: 40px 10% 80px; 
         }
         .goal-card { 
-            background: #fff; padding: 40px 30px; border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;
-            text-align: center; transition: all 0.4s ease;
+            background: #fff; /* Las tarjetas siguen siendo blancas, ahora resaltan */
+            padding: 50px 35px; border-radius: 25px; 
+            /* Sombra más profunda para el efecto de flotado */
+            box-shadow: 0 15px 45px rgba(0,0,0,0.07); 
+            border: 1px solid #f0f0f0;
+            text-align: center; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .goal-card:hover { 
-            transform: translateY(-12px); 
+            transform: translateY(-15px); 
             border-color: var(--main-red); 
-            box-shadow: 0 20px 40px rgba(229, 57, 53, 0.1); 
+            box-shadow: 0 25px 60px rgba(229, 57, 53, 0.12); 
         }
-        .goal-card i { font-size: 2.8rem; color: var(--main-red); margin-bottom: 20px; }
-        .goal-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--dark-text); }
-        .goal-card p { color: #666; line-height: 1.6; font-size: 0.95rem; }
+        .goal-card i { font-size: 3rem; color: var(--main-red); margin-bottom: 25px; }
+        .goal-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--dark-text); font-weight: 700; }
+        .goal-card p { color: #666; line-height: 1.7; font-size: 1rem; }
 
-        /* SECCIÓN DE ACCIÓN */
-        .action-area { text-align: center; padding: 60px 8%; background: #f9f9f9; border-radius: 40px 40px 0 0; }
-        .quote { font-size: 1.4rem; font-style: italic; color: #333; margin-bottom: 30px; display: block; }
+        /* SECCIÓN DE ACCIÓN FINAL */
+        .action-area { 
+            text-align: center; padding: 70px 8%; 
+            background: white; 
+            border-radius: 50px 50px 0 0; 
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.03);
+        }
+        .quote { font-size: 1.5rem; font-style: italic; color: #333; margin-bottom: 35px; display: block; font-weight: 500; }
+        .quote b { color: var(--main-red); font-weight: 700; }
         .btn-start { 
-            background: var(--main-red); color: white; padding: 18px 45px; 
-            border-radius: 50px; text-decoration: none; font-weight: 700; 
-            font-size: 1.1rem; display: inline-block; transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(229, 57, 53, 0.3);
+            background: var(--main-red); color: white; padding: 20px 50px; 
+            border-radius: 50px; text-decoration: none; font-weight: 800; 
+            font-size: 1.15rem; display: inline-block; transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(229, 57, 53, 0.35);
+            text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-start:hover { background: #000; transform: scale(1.05); }
+        .btn-start:hover { background: #000; transform: scale(1.05) translateY(-3px); }
 
-        footer { background: #000; color: white; padding: 40px; text-align: center; }
+        footer { background: #000; color: white; padding: 40px; text-align: center; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver</a>
     </header>
 
     <main>
         <section class="mission-hero">
             <h1>MISIÓN</h1>
-            <p>¿Sabías que leer no es solo repetir palabras? Es descubrir secretos, ganar argumentos y entender el mundo digital. En LlankanaWasi, convertimos la lectura en tu mejor herramienta de éxito.</p>
+            <p>En el corazón de LlankanaWasi, transformamos la lectura en tu mejor herramienta de éxito académico y personal. No solo leemos, comprendemos y dominamos.</p>
         </section>
 
         <section class="goals-container">
             <div class="goal-card">
                 <i class="fas fa-rocket"></i>
                 <h3>Supera el Nivel</h3>
-                <p>Pasaremos de solo "leer por encima" a comprender profundamente textos complejos preparados para tu nivel académico.</p>
+                <p>Pasaremos de solo "leer por encima" a comprender profundamente textos literarios y científicos complejos para noveno grado.</p>
             </div>
 
             <div class="goal-card">
@@ -110,7 +135,7 @@
 
     <footer>
         <div class="logo">LLANKANA<span>WASI</span></div>
-        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana. Todos los derechos reservados.</p>
+        <p style="color: #555; margin-top: 15px; font-size: 0.85rem;">© 2026 Lcdo. Juan Diego Caguana-Todos los derechos reservados..</p>
     </footer>
 
 </body>
