@@ -3,84 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC26 Ultra Concept</title>
+    <title>FC26 - Ultra Motion</title>
     <style>
-        /* --- ESTILOS CSS (EL DISEÑO) --- */
         :root {
             --accent: #00ffcc;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --bg-dark: #050505;
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
             overflow: hidden;
-            background-color: #000;
+            background-color: var(--bg-dark);
             color: white;
-            font-family: var(--font-main);
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        /* El fondo con efecto Parallax */
-        .background-wrapper {
+        /* --- FONDO ANIMADO DE PARTÍCULAS --- */
+        #canvas-bg {
             position: fixed;
-            width: 110%;
-            height: 110%;
-            top: -5%;
-            left: -5%;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=2000'); /* Imagen de fútbol de ejemplo */
-            background-size: cover;
-            background-position: center;
+            top: 0; left: 0;
             z-index: -1;
-            transition: transform 0.1s ease-out;
+            filter: blur(80px); /* Esto crea el efecto de luces suaves */
+            opacity: 0.6;
         }
 
         .container {
             display: flex;
             height: 100vh;
-            padding: 60px;
+            padding: 5% 8%;
             box-sizing: border-box;
-            background: radial-gradient(circle at center, transparent, rgba(0,0,0,0.4));
+            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 204, 0.05) 0%, transparent 50%);
         }
 
-        /* Menú lateral */
+        /* --- SIDEBAR --- */
         .sidebar {
-            width: 350px;
+            width: 300px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 15px;
+            z-index: 10;
         }
 
         .logo {
-            font-style: italic;
+            font-size: 3.5rem;
             font-weight: 900;
-            font-size: 3rem;
-            margin-bottom: 40px;
-            letter-spacing: -2px;
+            font-style: italic;
+            letter-spacing: -3px;
+            margin-bottom: 50px;
+            animation: slideIn 0.8s ease-out;
         }
 
         .nav-item {
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(255,255,255,0.4);
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 12px 0;
+            color: rgba(255,255,255,0.3);
             cursor: pointer;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            width: fit-content;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            letter-spacing: 1px;
         }
 
         .nav-item:hover, .nav-item.active {
             color: white;
-            transform: translateX(20px) scale(1.1);
-            text-shadow: 0 0 20px rgba(255,255,255,0.6);
+            transform: translateX(25px);
+            text-shadow: 0 0 20px var(--accent);
         }
 
-        /* Sección Central */
-        .main-content {
+        /* --- CONTENIDO CENTRAL --- */
+        .content {
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -90,73 +81,71 @@
             animation: fadeIn 1.5s ease;
         }
 
-        .icon-box {
-            font-size: 4rem;
+        .glow-icon {
+            font-size: 5rem;
             margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--accent));
+            filter: drop-shadow(0 0 20px var(--accent));
+            animation: float 3s ease-in-out infinite;
         }
 
         h1 {
-            max-width: 600px;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            max-width: 700px;
+            line-height: 1.1;
+            margin-bottom: 15px;
         }
 
-        .subtitle {
-            color: rgba(255,255,255,0.7);
-            font-size: 1rem;
-            margin-bottom: 30px;
+        .sub {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
         }
 
-        /* Botón estilo PlayStation */
-        .btn-expand {
+        .btn-play {
             background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 12px 30px;
-            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 15px 35px;
+            border-radius: 100px;
             color: white;
-            font-weight: 600;
-            backdrop-filter: blur(15px);
+            font-weight: bold;
+            backdrop-filter: blur(10px);
             cursor: pointer;
+            transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: 0.3s;
+            gap: 15px;
         }
 
-        .btn-expand:hover {
+        .btn-play:hover {
             background: white;
             color: black;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: scale(1.1);
         }
 
-        .circle-btn {
-            background: rgba(255,255,255,0.2);
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
+        /* --- ANIMACIONES --- */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
+
     </style>
 </head>
 <body>
 
-    <div class="background-wrapper" id="parallaxBg"></div>
+    <canvas id="canvas-bg"></canvas>
 
     <div class="container">
         <aside class="sidebar">
-            <div class="logo">FC<span style="color: var(--accent);">26</span></div>
+            <div class="logo">FC<span style="color:var(--accent)">26</span></div>
             <div class="nav-item">CLUBES</div>
             <div class="nav-item">PATADA INICIAL</div>
             <div class="nav-item active">APRENDE A JUGAR</div>
@@ -165,37 +154,57 @@
             <div class="nav-item">AMISTOSOS ONLINE</div>
         </aside>
 
-        <main class="main-content">
-            <div class="icon-box">🎮</div>
+        <main class="content">
+            <div class="glow-icon">🎮</div>
             <h1>El lugar ideal para quienes recién empiezan a jugar FC</h1>
-            <p class="subtitle">Completa entrenamientos • Aprende lo básico • Alcanza el siguiente nivel</p>
+            <p class="sub">Entrenamientos dinámicos • Desafíos • Progresión</p>
             
-            <button class="btn-expand">
-                <span class="circle-btn">×</span> Expandir Aprende a jugar
+            <button class="btn-play">
+                <span style="border: 1px solid; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px;">X</span>
+                Expandir Aprende a jugar
             </button>
         </main>
     </div>
 
     <script>
-        /* --- JAVASCRIPT (MOVIMIENTO PRO) --- */
-        const bg = document.getElementById('parallaxBg');
+        // LÓGICA DE LAS LUCES DE FONDO (PARA QUE NO SE VEA NEGRO)
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-        // Efecto de movimiento del fondo con el mouse
-        document.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) / 40;
-            const moveY = (e.clientY - window.innerHeight / 2) / 40;
-            
-            bg.style.transform = `translate(${-moveX}px, ${-moveY}px) scale(1.05)`;
-        });
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<5; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 300 + 200,
+                    color: i % 2 === 0 ? '#00ffcc' : '#ffffff',
+                    dx: (Math.random() - 0.5) * 2,
+                    dy: (Math.random() - 0.5) * 2
+                });
+            }
+        }
 
-        // Interacción simple en el menú
-        const items = document.querySelectorAll('.nav-item');
-        items.forEach(item => {
-            item.addEventListener('click', () => {
-                items.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
             });
-        });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
     </script>
 </body>
 </html>
