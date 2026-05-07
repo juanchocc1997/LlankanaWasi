@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital | LlankanaWasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { 
+            --main-red: #e53935; 
+            --dark-blue: #2c3e50;
+            --soft-gray: #f8f9fa;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body { 
+            background-color: #fdfdfd; 
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* HEADER */
+        header { 
+            background: #000; padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 3px solid var(--main-red); 
+        }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: white; }
+        .logo span { color: var(--main-red); }
+        
+        .back-btn { 
+            color: white; text-decoration: none; font-size: 0.85rem; 
+            background: #222; padding: 10px 20px; border-radius: 8px; 
+            transition: 0.3s; font-weight: 700; border: 1px solid #444;
+        }
+        .back-btn:hover { background: var(--main-red); border-color: var(--main-red); }
+
+        /* HERO SECTION */
+        .lib-hero { padding: 60px 8% 40px; text-align: center; }
+        .lib-hero i { font-size: 3.5rem; color: var(--main-red); margin-bottom: 15px; }
+        .lib-hero h1 { font-size: 2.8rem; font-weight: 800; color: #1a1a1a; text-transform: uppercase; }
+        .lib-hero p { color: #666; font-size: 1.1rem; max-width: 700px; margin: 15px auto 0; }
+
+        /* CONTENEDOR DE BIBLIOTECA */
+        .shelf-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; padding: 20px 8% 80px; 
+        }
+
+        /* TARJETA ESPECIAL: EL LIBRO TOTAL */
+        .card-premium {
+            grid-column: 1 / -1; /* Ocupa todo el ancho */
+            background: linear-gradient(135deg, #ffffff 0%, var(--soft-gray) 100%);
+            border-left: 10px solid var(--dark-blue) !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            gap: 40px;
+            padding: 40px !important;
+        }
+
+        .book-card { 
+            background: white; border-radius: 25px; padding: 35px; 
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .book-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        .book-card i { font-size: 3.5rem; color: #333; margin-bottom: 20px; }
+        .book-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #111; }
+        .book-card p { font-size: 0.9rem; color: #777; line-height: 1.5; margin-bottom: 25px; }
+
+        .btn-read { 
+            display: inline-block; padding: 12px 25px; 
+            background: #000; color: white; text-decoration: none; 
+            border-radius: 10px; font-weight: 700; font-size: 0.85rem;
+            transition: 0.3s; text-transform: uppercase;
+        }
+        .btn-read:hover { background: var(--main-red); transform: scale(1.05); }
+
+        .btn-premium {
+            background: var(--dark-blue);
+            padding: 15px 35px;
+            font-size: 1rem;
+        }
+
+        /* FOOTER */
+        footer { background: #000; color: white; padding: 60px 8%; text-align: center; border-top: 4px solid var(--main-red); }
+
+        /* Responsive para la tarjeta premium */
+        @media (max-width: 768px) {
+            .card-premium { flex-direction: column !important; text-align: center; }
+            .card-premium div { text-align: center !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> VOLVER AL INICIO</a>
+    </header>
+
+    <section class="lib-hero">
+        <i class="fas fa-university"></i>
+        <h1>Biblioteca Digital</h1>
+        <p>Explora un universo de lecturas seleccionadas para potenciar tu comprensión lectora.</p>
+    </section>
+
+    <main class="shelf-container">
+        
+        <div class="book-card card-premium">
+            <i class="fas fa-atlas" style="font-size: 5rem; color: var(--dark-blue);"></i>
+            <div style="text-align: left;">
+                <h3 style="font-size: 1.8rem;">Plataforma "El Libro Total"</h3>
+                <p style="font-size: 1rem; max-width: 600px;">
+                    La biblioteca digital más completa para estudiantes de noveno grado. 
+                    Encuentra audiolibros, música clásica, diccionarios y obras maestras como 
+                    <i>"El Chiflón del Diablo"</i>.
+                </p>
+                <a href="https://www.ellibrototal.com/total/" target="_blank" class="btn-read btn-premium">
+                    <i class="fas fa-external-link-alt"></i> EXPLORAR BIBLIOTECA COMPLETA
+                </a>
+            </div>
+        </div>
+
+        <div class="book-card" style="border-top: 5px solid var(--main-red);">
+            <i class="fas fa-file-pdf" style="color: var(--main-red);"></i>
+            <h3>Plan Lector 2026</h3>
+            <p>Descarga el cronograma de lecturas mensuales para este periodo académico.</p>
+            <a href="#" class="btn-read">DESCARGAR PDF</a>
+        </div>
+
+        <div class="book-card" style="border-top: 5px solid #00b0ff;">
+            <i class="fas fa-language" style="color: #00b0ff;"></i>
+            <h3>Diccionarios RAE</h3>
+            <p>Consulta el significado exacto de las palabras para tus análisis de texto.</p>
+            <a href="https://dle.rae.es/" target="_blank" class="btn-read">IR AL DICCIONARIO</a>
+        </div>
+
+        <div class="book-card" style="border-top: 5px solid #4caf50;">
+            <i class="fas fa-quote-left" style="color: #4caf50;"></i>
+            <h3>Cuentos de Terror</h3>
+            <p>Una colección especial para trabajar la atmósfera y el conflicto narrativo.</p>
+            <a href="#" class="btn-read">EXPLORAR</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 20px;">LLANKANA<span>WASI</span></div>
+        <p style="color: #666; font-size: 0.9rem;">© 2026 Lcdo. Juan Diego Caguana - Acceso a la cultura digital.</p>
+    </footer>
+
+</body>
+</html>
