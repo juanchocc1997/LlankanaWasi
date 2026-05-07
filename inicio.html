@@ -17,12 +17,12 @@
         .back-btn:hover { background: var(--main-red); border-color: var(--main-red); }
 
         /* HERO DE PRESENTACIÓN */
-        .intro-hero { padding: 50px 8%; background: #fdfdfd; text-align: center; }
-        .intro-hero h1 { font-size: 2.2rem; margin-bottom: 10px; color: var(--dark-text); }
+        .intro-hero { padding: 50px 8% 20px; background: #fdfdfd; text-align: center; }
+        .intro-hero h1 { font-size: 2.2rem; margin-bottom: 30px; color: var(--dark-text); }
         
         .video-wrapper { 
-            max-width: 750px; /* Video un poco más pequeño para no cansar la vista */
-            margin: 30px auto 50px; 
+            max-width: 750px; 
+            margin: 0 auto 50px; 
             border-radius: 15px; 
             overflow: hidden; 
             box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
@@ -31,33 +31,36 @@
         }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* PERFIL AJUSTADO (FOTO PEQUEÑA) */
+        /* PERFIL AJUSTADO (FOTO ELEGANTE) */
         .profile-container { 
             display: flex; 
             align-items: center; 
             justify-content: center;
-            gap: 40px; 
-            padding: 40px 12%; /* Más margen lateral */
+            gap: 50px; 
+            padding: 40px 10%; 
             background: white; 
             flex-wrap: wrap; 
         }
-        .profile-img { 
-            flex: 0 0 320px; /* Ancho fijo para que no crezca demasiado */
-        }
-        .profile-img img { 
-            width: 100%; 
-            border-radius: 20px; 
-            box-shadow: 10px 10px 0px var(--main-red); 
-        }
-        .profile-info { 
-            flex: 1; 
-            min-width: 300px; 
-        }
+        .profile-img { flex: 0 0 320px; }
+        .profile-img img { width: 100%; border-radius: 20px; box-shadow: 10px 10px 0px var(--main-red); }
+        .profile-info { flex: 1; min-width: 300px; }
         .profile-info h2 { font-size: 1.8rem; margin-bottom: 15px; }
         .profile-info h2 span { color: var(--main-red); }
         .profile-info p { font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px; }
 
-        /* PIE DE PÁGINA */
+        /* SECCIÓN PILLARS (TUS 3 BLOQUES) */
+        .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 60px 8%; text-align: center; background: #f9f9f9; }
+        .pillar-card { padding: 35px; background: white; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: 0.3s; }
+        .pillar-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--main-red); }
+        .pillar-card i { font-size: 2.5rem; color: var(--main-red); margin-bottom: 20px; }
+        .pillar-card h3 { margin-bottom: 15px; font-weight: 700; }
+        .pillar-card p { color: #666; font-size: 0.95rem; }
+
+        /* CTA FINAL */
+        .final-cta { text-align: center; padding: 80px 8%; background: #fff; }
+        .btn-ready { background: var(--main-red); color: white; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px rgba(229, 57, 53, 0.2); }
+        .btn-ready:hover { background: #000; transform: scale(1.05); }
+
         footer { background: #000; color: white; padding: 40px; text-align: center; }
     </style>
 </head>
@@ -72,7 +75,7 @@
         <section class="intro-hero">
             <h1>¡Hola! Te presento LlankanaWasi</h1>
             <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/lH9DhQv6nqo?si=LFLL49dZuzOH1PvC" title="Video de Presentación" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/TV7Dj8lch4k?si=1iWdTiwCSGITDpQz" title="Video de Presentación" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -86,11 +89,35 @@
                 <p>En este espacio, he diseñado cada recurso didáctico pensando en los retos actuales de la comprensión lectora, utilizando herramientas digitales que facilitan tu aprendizaje.</p>
             </div>
         </section>
+
+        <section class="pillars">
+            <div class="pillar-card">
+                <i class="fas fa-brain"></i>
+                <h3>Análisis Crítico</h3>
+                <p>Aprende a cuestionar y entender el trasfondo de cada lectura de forma estratégica.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Agilidad Mental</h3>
+                <p>Implementa estrategias para captar ideas principales en tiempo récord y con precisión.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Resultados</h3>
+                <p>Mejora tu rendimiento académico y profesional significativamente a través de la lectura.</p>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <h2>¿Estás listo para empezar?</h2>
+            <p style="margin-bottom: 30px; color: #666;">El aula virtual te está esperando con todos los materiales preparados.</p>
+            <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2" class="btn-ready">¡ACCEDER AL AULA VIRTUAL AHORA!</a>
+        </section>
     </main>
 
     <footer>
         <div class="logo">LLANKANA<span>WASI</span></div>
-        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana.</p>
+        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana. Todos los derechos reservados.</p>
     </footer>
 
 </body>
