@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación | Lcdo. Juan Diego Caguana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --main-red: #e53935; --dark-text: #222; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        header { background: #000; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--main-red); }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: white; }
+        .logo span { color: var(--main-red); }
+        .back-btn { color: #fff; text-decoration: none; font-size: 0.9rem; border: 1px solid #444; padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
+        .back-btn:hover { background: var(--main-red); border-color: var(--main-red); }
+
+        /* HERO DE PRESENTACIÓN */
+        .intro-hero { padding: 80px 8%; background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://www.transparenttextures.com/patterns/cubes.png'); text-align: center; }
+        .intro-hero h1 { font-size: 2.8rem; margin-bottom: 10px; color: var(--dark-text); }
+        .intro-hero p { font-size: 1.2rem; color: #666; margin-bottom: 40px; }
+
+        /* VIDEO */
+        .video-wrapper { max-width: 850px; margin: 0 auto 60px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15); aspect-ratio: 16/9; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* PERFIL DEL LICENCIADO */
+        .profile-container { display: flex; align-items: center; gap: 60px; padding: 60px 8%; background: white; flex-wrap: wrap; }
+        .profile-img { flex: 1; min-width: 300px; }
+        .profile-img img { width: 100%; border-radius: 25px; box-shadow: 15px 15px 0px var(--main-red); }
+        .profile-info { flex: 1.5; min-width: 300px; }
+        .profile-info h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .profile-info h2 span { color: var(--main-red); }
+        .profile-info p { font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 20px; }
+
+        /* PILARES */
+        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 60px 8%; text-align: center; background: #f9f9f9; }
+        .pillar-card { padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .pillar-card i { font-size: 2.5rem; color: var(--main-red); margin-bottom: 15px; }
+        .pillar-card h3 { margin-bottom: 10px; }
+
+        /* CTA FINAL */
+        .final-cta { text-align: center; padding: 80px 8%; background: #fff; }
+        .btn-ready { background: var(--main-red); color: white; padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px rgba(229, 57, 53, 0.3); }
+        .btn-ready:hover { transform: scale(1.05); background: #000; }
+
+        footer { background: #000; color: white; padding: 40px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
+    </header>
+
+    <main>
+        <section class="intro-hero">
+            <h1>Bienvenido a LlankanaWasi</h1>
+            <p>Descubre el poder de una lectura con propósito.</p>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ID_VIDEO" title="Video de Presentación" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="profile-container">
+            <div class="profile-img">
+                <img src="https://via.placeholder.com/500x600" alt="Lcdo. Juan Diego Caguana">
+            </div>
+            <div class="profile-info">
+                <h2>Soy el <span>Lcdo. Juan Diego Caguana</span></h2>
+                <p>Mi compromiso es guiarte en el desarrollo de habilidades críticas que te permitan no solo leer, sino comprender, analizar y transformar la información en conocimiento real.</p>
+                <p>En este espacio, he diseñado cada recurso didáctico pensando en los retos actuales de la comprensión lectora, utilizando herramientas digitales que facilitan tu aprendizaje.</p>
+            </div>
+        </section>
+
+        <section class="pillars">
+            <div class="pillar-card">
+                <i class="fas fa-brain"></i>
+                <h3>Análisis Crítico</h3>
+                <p>Aprende a cuestionar y entender el trasfondo de cada lectura.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Agilidad Mental</h3>
+                <p>Estrategias para captar ideas principales en tiempo récord.</p>
+            </div>
+            <div class="pillar-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Resultados</h3>
+                <p>Mejora tu rendimiento académico y profesional significativamente.</p>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <h2>¿Estás listo para empezar?</h2>
+            <p style="margin-bottom: 30px; color: #666;">El aula virtual te está esperando con todos los materiales preparados.</p>
+            <a href="TU_LINK_DE_CLASSROOM" class="btn-ready">¡ACCEDER AL AULA VIRTUAL AHORA!</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">LLANKANA<span>WASI</span></div>
+        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
