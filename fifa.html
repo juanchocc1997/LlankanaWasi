@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC26 Ultra Concept</title>
+    <style>
+        /* --- ESTILOS CSS (EL DISEÑO) --- */
+        :root {
+            --accent: #00ffcc;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            color: white;
+            font-family: var(--font-main);
+        }
+
+        /* El fondo con efecto Parallax */
+        .background-wrapper {
+            position: fixed;
+            width: 110%;
+            height: 110%;
+            top: -5%;
+            left: -5%;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=2000'); /* Imagen de fútbol de ejemplo */
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.1s ease-out;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            padding: 60px;
+            box-sizing: border-box;
+            background: radial-gradient(circle at center, transparent, rgba(0,0,0,0.4));
+        }
+
+        /* Menú lateral */
+        .sidebar {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-style: italic;
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            letter-spacing: -2px;
+        }
+
+        .nav-item {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: fit-content;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: white;
+            transform: translateX(20px) scale(1.1);
+            text-shadow: 0 0 20px rgba(255,255,255,0.6);
+        }
+
+        /* Sección Central */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .icon-box {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--accent));
+        }
+
+        h1 {
+            max-width: 600px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Botón estilo PlayStation */
+        .btn-expand {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-expand:hover {
+            background: white;
+            color: black;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .circle-btn {
+            background: rgba(255,255,255,0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-wrapper" id="parallaxBg"></div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">FC<span style="color: var(--accent);">26</span></div>
+            <div class="nav-item">CLUBES</div>
+            <div class="nav-item">PATADA INICIAL</div>
+            <div class="nav-item active">APRENDE A JUGAR</div>
+            <div class="nav-item">TEMPORADAS</div>
+            <div class="nav-item">TORNEOS</div>
+            <div class="nav-item">AMISTOSOS ONLINE</div>
+        </aside>
+
+        <main class="main-content">
+            <div class="icon-box">🎮</div>
+            <h1>El lugar ideal para quienes recién empiezan a jugar FC</h1>
+            <p class="subtitle">Completa entrenamientos • Aprende lo básico • Alcanza el siguiente nivel</p>
+            
+            <button class="btn-expand">
+                <span class="circle-btn">×</span> Expandir Aprende a jugar
+            </button>
+        </main>
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT (MOVIMIENTO PRO) --- */
+        const bg = document.getElementById('parallaxBg');
+
+        // Efecto de movimiento del fondo con el mouse
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 40;
+            const moveY = (e.clientY - window.innerHeight / 2) / 40;
+            
+            bg.style.transform = `translate(${-moveX}px, ${-moveY}px) scale(1.05)`;
+        });
+
+        // Interacción simple en el menú
+        const items = document.querySelectorAll('.nav-item');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                items.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
