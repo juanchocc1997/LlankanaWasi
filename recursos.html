@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio: El Juego de Comprender</title>
+    <title>Laboratorio de Retos | LlankanaWasi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --main-red: #e53935; --game-blue: #00b0ff; --game-green: #4caf50; --game-orange: #ff9800; }
+        :root { 
+            --main-red: #e53935; 
+            --game-blue: #00b0ff; 
+            --game-green: #4caf50; 
+            --game-orange: #ff9800; 
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
         body { 
-            background-color: #f0f2f5; 
-            background-image: radial-gradient(#d1d1d1 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-color: #fdfdfd; 
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         header { 
@@ -23,103 +29,109 @@
         }
         .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: white; }
         .logo span { color: var(--main-red); }
-        .back-btn { color: white; text-decoration: none; font-size: 0.8rem; border: 1px solid #444; padding: 8px 15px; border-radius: 5px; }
+        
+        .back-btn { 
+            color: white; text-decoration: none; font-size: 0.85rem; 
+            background: #222; padding: 10px 20px; border-radius: 8px; 
+            transition: 0.3s; font-weight: 700; border: 1px solid #444;
+        }
+        .back-btn:hover { background: var(--main-red); border-color: var(--main-red); }
 
-        .game-hero { padding: 50px 8%; text-align: center; }
-        .game-hero h1 { font-size: 2.5rem; font-weight: 800; color: #1a1a1a; text-transform: uppercase; }
-        .game-hero p { color: #555; font-size: 1.1rem; margin-top: 10px; }
+        .lab-hero { padding: 60px 8% 40px; text-align: center; }
+        .lab-hero h1 { font-size: 2.8rem; font-weight: 800; color: #1a1a1a; text-transform: uppercase; }
+        .lab-hero p { color: #666; font-size: 1.1rem; max-width: 700px; margin: 15px auto 0; }
 
-        /* REJILLA DE JUEGOS */
         .game-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; padding: 0 8% 60px; 
+            gap: 25px; padding: 20px 8% 80px; 
         }
 
         .game-card { 
-            background: white; border-radius: 20px; padding: 30px; 
-            text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: 0.3s; border-bottom: 5px solid transparent;
-            position: relative;
+            background: white; border-radius: 25px; padding: 40px 30px; 
+            text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #f0f0f0;
+            display: flex; flex-direction: column; align-items: center;
         }
-        .game-card:hover { transform: translateY(-10px); }
-        
-        /* Colores por reto */
-        .card-red { border-color: var(--main-red); }
-        .card-blue { border-color: var(--game-blue); }
-        .card-green { border-color: var(--game-green); }
-        .card-orange { border-color: var(--game-orange); }
 
-        .game-card i { font-size: 3.5rem; margin-bottom: 20px; }
-        .card-red i { color: var(--main-red); }
-        .card-blue i { color: var(--game-blue); }
-        .card-green i { color: var(--game-green); }
-        .card-orange i { color: var(--game-orange); }
-
-        .game-card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #222; }
-        .game-card p { font-size: 0.9rem; color: #666; margin-bottom: 25px; }
+        .game-card i { font-size: 3.8rem; margin-bottom: 25px; }
+        .game-card h3 { font-size: 1.4rem; margin-bottom: 12px; color: #111; }
+        .game-card p { font-size: 0.95rem; color: #777; line-height: 1.6; margin-bottom: 30px; flex-grow: 1; }
 
         .btn-play { 
-            display: inline-block; width: 100%; padding: 12px; 
-            color: white; text-decoration: none; border-radius: 10px; 
-            font-weight: 700; text-transform: uppercase; font-size: 0.85rem;
-            transition: 0.3s;
+            display: inline-block; width: 100%; padding: 15px; 
+            color: white; text-decoration: none; border-radius: 12px; 
+            font-weight: 800; text-transform: uppercase; font-size: 0.9rem;
+            transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+
+        .card-red:hover { box-shadow: 0 20px 40px rgba(229, 57, 53, 0.2); transform: translateY(-12px); }
+        .card-red i { color: var(--main-red); }
         .card-red .btn-play { background: var(--main-red); }
+
+        .card-blue:hover { box-shadow: 0 20px 40px rgba(0, 176, 255, 0.2); transform: translateY(-12px); }
+        .card-blue i { color: var(--game-blue); }
         .card-blue .btn-play { background: var(--game-blue); }
+
+        .card-green:hover { box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2); transform: translateY(-12px); }
+        .card-green i { color: var(--game-green); }
         .card-green .btn-play { background: var(--game-green); }
+
+        .card-orange:hover { box-shadow: 0 20px 40px rgba(255, 152, 0, 0.2); transform: translateY(-12px); }
+        .card-orange i { color: var(--game-orange); }
         .card-orange .btn-play { background: var(--game-orange); }
 
-        .btn-play:hover { filter: brightness(1.2); letter-spacing: 1px; }
+        .btn-play:hover { filter: brightness(1.2); transform: scale(1.05); }
 
-        footer { background: #000; color: white; padding: 40px; text-align: center; }
+        footer { background: #000; color: white; padding: 60px 8%; text-align: center; border-top: 4px solid var(--main-red); }
     </style>
 </head>
 <body>
 
     <header>
         <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
-        <a href="index.html" class="back-btn"><i class="fas fa-undo"></i> Volver</a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> VOLVER AL INICIO</a>
     </header>
 
-    <section class="game-hero">
-        <h1>Laboratorio de Retos</h1>
-        <p>¡Supera las misiones y domina tu lectura! Cada juego te acerca más al éxito.</p>
+    <section class="lab-hero">
+        <h1>LABORATORIO DE RETOS</h1>
+        <p>Selecciona una misión externa para poner a prueba tus habilidades de comprensión lectora.</p>
     </section>
 
     <main class="game-grid">
         <div class="game-card card-red">
             <i class="fas fa-shield-alt"></i>
             <h3>El Escudo Crítico</h3>
-            <p>Un juego para identificar noticias falsas. ¿Podrás defenderte de la desinformación?</p>
-            <a href="LINK_A_TU_JUEGO" target="_blank" class="btn-play"><i class="fas fa-gamepad"></i> ¡Jugar Misión!</a>
+            <p>Identifica noticias falsas en esta ficha interactiva de LiveWorksheets.</p>
+            <a href="https://www.liveworksheets.com/es/busqueda?q=noticias+falsas" target="_blank" class="btn-play">¡ABRIR FICHA!</a>
         </div>
 
         <div class="game-card card-blue">
             <i class="fas fa-rocket"></i>
             <h3>Ojos de Águila</h3>
-            <p>Desafío visual para encontrar la idea principal antes de que se acabe el tiempo.</p>
-            <a href="LINK_A_TU_JUEGO" target="_blank" class="btn-play"><i class="fas fa-play"></i> Despegar Desafío</a>
+            <p>Encuentra la idea principal en este juego de velocidad en Educaplay.</p>
+            <a href="https://es.educaplay.com/recursos-educativos/?q=comprension+lectora" target="_blank" class="btn-play">DESPEGAR RETO</a>
         </div>
 
         <div class="game-card card-green">
             <i class="fas fa-brain"></i>
             <h3>Engranaje Mental</h3>
-            <p>Conecta las pistas que el autor dejó ocultas para armar la conclusión correcta.</p>
-            <a href="LINK_A_TU_JUEGO" target="_blank" class="btn-play"><i class="fas fa-flask"></i> Iniciar Experimento</a>
+            <p>Conecta conceptos y arma conclusiones en este tablero de Wordwall.</p>
+            <a href="https://wordwall.net/es-ar/community?localeId=11274&query=lectura+comprensiva" target="_blank" class="btn-play">INICIAR JUEGO</a>
         </div>
 
         <div class="game-card card-orange">
             <i class="fas fa-comments"></i>
             <h3>La Voz del Análisis</h3>
-            <p>Defiende tu punto de vista en este simulador de debates sobre lecturas actuales.</p>
-            <a href="LINK_A_TU_JUEGO" target="_blank" class="btn-play"><i class="fas fa-microphone"></i> Dar mi Opinión</a>
+            <p>Responde a este cuestionario de opinión crítica sobre la lectura de la semana.</p>
+            <a href="https://docs.google.com/forms/" target="_blank" class="btn-play">TOMAR TEST</a>
         </div>
     </main>
 
     <footer>
         <div class="logo">LLANKANA<span>WASI</span></div>
-        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana - Todos los derechos reservados.</p>
+        <p style="color: #666;">© 2026 Lcdo. Juan Diego Caguana.</p>
     </footer>
 
 </body>
