@@ -6,81 +6,197 @@
     <title>Campus Virtual | LlankanaWasi</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        :root { --main-red: #e53935; --accent-blue: #0091ea; }
+        :root { 
+            --main-red: #e53935; 
+            --dark-red: #b71c1c;
+            --accent-blue: #00b0ff; 
+            --bg-light: #f8f9fa;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); overflow-x: hidden; }
 
-        /* NAVEGACIÓN SUPERIOR */
+        /* --- NAVEGACIÓN SUPERIOR --- */
         header { 
-            background: #000; color: white; padding: 12px 6%; 
-            display: flex; justify-content: space-between; align-items: center;
+            background: #000; 
+            color: white; 
+            padding: 15px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
             border-bottom: 3px solid var(--main-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+        .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; text-decoration: none; color: white; }
         .logo span { color: var(--main-red); }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-right img { height: 25px; filter: brightness(0) invert(1); }
+        
         .btn-top-access { 
-            background: var(--main-red); color: white; padding: 8px 18px; 
-            border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.75rem;
+            background: var(--main-red); 
+            color: white; 
+            padding: 10px 25px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 0.8rem; 
+            text-transform: uppercase; 
+            transition: 0.3s;
         }
+        .btn-top-access:hover { background: var(--dark-red); transform: translateY(-2px); }
 
-        /* HERO SECTION CON BOTÓN FLOTANTE */
+        /* --- SECCIÓN HERO (IMPACTO) --- */
         .hero { 
-            position: relative; height: 500px;
-            background: url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1500&q=80') center/cover;
-            display: flex; justify-content: center; align-items: center;
+            position: relative; 
+            height: 550px;
+            background: url('https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=1500&q=80') center/cover;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
         }
-        .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.3); }
+        .hero::before { 
+            content: ""; 
+            position: absolute; 
+            inset: 0; 
+            background: rgba(0,0,0,0.5); 
+        }
 
         .floating-pill {
-            position: relative; z-index: 2;
-            background: linear-gradient(90deg, #00b0ff 0%, #e53935 100%);
-            padding: 30px 60px; border-radius: 60px; text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3); color: white;
-            min-width: 450px;
+            position: relative; 
+            z-index: 2;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--main-red) 100%);
+            padding: 40px 60px; 
+            border-radius: 100px; 
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            color: white;
+            min-width: 500px; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .floating-pill h2 { font-size: 1.8rem; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .floating-pill:hover { transform: scale(1.03); }
+        .floating-pill h2 { font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; font-weight: 800; line-height: 1.2; }
         .btn-access-pill { 
-            color: white; text-decoration: none; font-weight: 600; font-size: 1rem;
-            display: inline-block; border-bottom: 1px solid white; padding-bottom: 2px;
+            color: white; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            display: inline-block; 
+            border-bottom: 2px solid rgba(255,255,255,0.6); 
+            padding-bottom: 5px; 
+            transition: 0.3s;
         }
+        .btn-access-pill:hover { border-color: white; letter-spacing: 1px; }
 
-        /* CUADRÍCULA DE SERVICIOS (COMO EN LA IMAGEN) */
+        /* --- GRILLA DE NAVEGACIÓN EDUCATIVA --- */
         .services-grid { 
-            display: grid; grid-template-columns: repeat(5, 1fr); 
-            padding: 40px 6%; background: #fff; gap: 15px; margin-top: -30px;
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            padding: 0 8% 60px; 
+            gap: 20px; 
+            margin-top: -50px; 
+            position: relative;
+            z-index: 10;
         }
         .service-card { 
-            background: white; padding: 25px 15px; text-align: center; 
-            border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: 0.3s; z-index: 3; border: 1px solid #eee;
+            background: white; 
+            padding: 35px 20px; 
+            text-align: center; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: 0.4s; 
+            border: 1px solid #eee;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--main-red); }
-        .service-card i { font-size: 2.2rem; color: #8d191c; margin-bottom: 15px; display: block; }
-        .service-card span { font-size: 0.9rem; font-weight: 600; color: #333; line-height: 1.2; display: block; }
+        .service-card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 40px rgba(229, 57, 53, 0.15);
+            border-bottom: 5px solid var(--main-red);
+        }
+        .service-card i { font-size: 2.5rem; color: #8d191c; margin-bottom: 20px; }
+        .service-card span { 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            color: #222; 
+            text-transform: uppercase; 
+            line-height: 1.3;
+        }
+        /* Resaltar botón de Aula Virtual */
+        .card-highlight { background: #fffafa; border: 1px solid rgba(229, 57, 53, 0.2); }
+        .card-highlight i, .card-highlight span { color: var(--main-red) !important; }
 
-        /* FOOTER NEGRO PROFESIONAL */
-        footer { background: #111; color: white; padding: 50px 6% 20px; }
-        .footer-top { 
-            display: flex; justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid #333; padding-bottom: 30px; margin-bottom: 20px;
+        /* --- PIE DE PÁGINA (FOOTER PRO) --- */
+        footer { 
+            background: #000; 
+            color: white; 
+            padding: 80px 8% 40px; 
         }
-        .footer-links a { color: #aaa; text-decoration: none; margin: 0 15px; font-size: 0.85rem; }
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-        .partners img { height: 35px; margin-right: 20px; opacity: 0.6; filter: grayscale(1); }
-        .socials a { color: #aaa; margin-left: 20px; font-size: 1.4rem; transition: 0.3s; }
-        .socials a:hover { color: var(--main-red); }
+        .footer-container { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1fr; 
+            gap: 60px; 
+            margin-bottom: 60px; 
+        }
+        .footer-brand .logo { font-size: 1.8rem; display: block; margin-bottom: 20px; }
+        .footer-brand p { color: #888; font-size: 0.95rem; line-height: 1.6; max-width: 350px; }
+        
+        .footer-links h4 { 
+            color: white; 
+            margin-bottom: 30px; 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            letter-spacing: 2px; 
+        }
+        .footer-links a { 
+            display: block; 
+            color: #777; 
+            text-decoration: none; 
+            margin-bottom: 15px; 
+            font-size: 0.95rem; 
+            transition: 0.3s; 
+        }
+        .footer-links a:hover { color: var(--main-red); transform: translateX(5px); }
+        
+        .socials { margin-top: 30px; }
+        .socials a { 
+            color: white; 
+            font-size: 1.6rem; 
+            margin-right: 25px; 
+            transition: 0.3s; 
+            opacity: 0.5; 
+        }
+        .socials a:hover { opacity: 1; color: var(--main-red); }
+
+        .footer-bottom { 
+            border-top: 1px solid #1a1a1a; 
+            padding-top: 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-size: 0.8rem; 
+            color: #444; 
+        }
+        .footer-bottom .legal a { color: #444; text-decoration: none; margin-left: 20px; }
+        .footer-bottom .legal a:hover { color: #888; }
+
+        /* Adaptabilidad para móviles */
+        @media (max-width: 992px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); margin-top: -30px; }
+            .floating-pill { min-width: 90%; padding: 30px; }
+            .footer-container { grid-template-columns: 1fr; gap: 40px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">LLANKANA<span>WASI</span></div>
-        <div class="nav-right">
-            <div style="color:white; font-weight:bold; font-size:1.2rem;">u <span style="font-weight:400">uc</span></div>
-            <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2" class="btn-top-access">ACCESO ESTUDIANTES</a>
-        </div>
+        <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
+        <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2" class="btn-top-access">Acceso Estudiantes</a>
     </header>
 
     <section class="hero">
@@ -90,47 +206,62 @@
         </div>
     </section>
 
-    <div class="services-grid">
-        <div class="service-card" onclick="location.href='inicio.html'">
-            <i class="fas fa-desktop"></i>
-            <span>Asiste a clases</span>
-        </div>
+    <nav class="services-grid">
+        <a href="inicio.html" class="service-card">
+            <i class="fas fa-rocket"></i>
+            <span>Comienza Aquí</span>
+        </a>
         <div class="service-card">
-            <i class="fas fa-question-circle"></i>
-            <span>Resuelve tus dudas</span>
+            <i class="fas fa-bullseye"></i>
+            <span>Misión Lectora</span>
         </div>
+        <a href="recursos.html" class="service-card">
+            <i class="fas fa-flask"></i>
+            <span>Laboratorio de Textos</span>
+        </a>
         <div class="service-card">
-            <i class="fas fa-th"></i>
-            <span>Aprovecha recursos magistrales</span>
+            <i class="fas fa-medal"></i>
+            <span>Entrenamiento Pro</span>
         </div>
-        <div class="service-card">
-            <i class="fas fa-globe"></i>
-            <span>Revisa las grabadas</span>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-plus-circle"></i>
-            <span>Aulas Virtuales</span>
-        </div>
-    </div>
+        <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2" class="service-card card-highlight">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Aula Virtual</span>
+        </a>
+    </nav>
 
     <footer>
-        <div class="footer-top">
-            <div class="logo">LLANKANA<span>WASI</span></div>
-            <nav class="footer-links">
-                <a href="recursos.html">Recursos Académicos</a>
-                <a href="inicio.html">Nuestra Misión</a>
-                <a href="#">Aviso Legal</a>
-            </nav>
-        </div>
-        <div class="footer-bottom">
-            <div class="partners">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Logotipo_de_la_Universidad_de_C%C3%B3rdoba.svg/1200px-Logotipo_de_la_Universidad_de_C%C3%B3rdoba.svg.png" alt="Partner">
-                <img src="https://seeklogo.com/images/E/erasmus-logo-B3B1C56816-seeklogo.com.png" alt="Partner">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
+                <p>Tu casa de herramientas digitales para dominar la comprensión lectora y transformar tu aprendizaje.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
             </div>
-            <div class="socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-tiktok"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+
+            <div class="footer-links">
+                <h4>Plataforma</h4>
+                <a href="inicio.html">Presentación Inicial</a>
+                <a href="recursos.html">Laboratorio de Textos</a>
+                <a href="TU_LINK_CLASSROOM">Acceso Classroom</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <a href="#">Preguntas Frecuentes</a>
+                <a href="#">Guía del Estudiante</a>
+                <a href="#">Contacto Directo</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 LlankanaWasi. Todos los derechos reservados.</p>
+            <div class="legal">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Privacidad</a>
             </div>
         </div>
     </footer>
