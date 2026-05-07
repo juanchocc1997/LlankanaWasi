@@ -17,34 +17,47 @@
         .back-btn:hover { background: var(--main-red); border-color: var(--main-red); }
 
         /* HERO DE PRESENTACIÓN */
-        .intro-hero { padding: 80px 8%; background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://www.transparenttextures.com/patterns/cubes.png'); text-align: center; }
-        .intro-hero h1 { font-size: 2.8rem; margin-bottom: 10px; color: var(--dark-text); }
-        .intro-hero p { font-size: 1.2rem; color: #666; margin-bottom: 40px; }
-
-        /* VIDEO */
-        .video-wrapper { max-width: 850px; margin: 0 auto 60px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15); aspect-ratio: 16/9; background: #000; }
+        .intro-hero { padding: 50px 8%; background: #fdfdfd; text-align: center; }
+        .intro-hero h1 { font-size: 2.2rem; margin-bottom: 10px; color: var(--dark-text); }
+        
+        .video-wrapper { 
+            max-width: 750px; /* Video un poco más pequeño para no cansar la vista */
+            margin: 30px auto 50px; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            aspect-ratio: 16/9; 
+            background: #000; 
+        }
         iframe { width: 100%; height: 100%; border: none; }
 
-        /* PERFIL DEL LICENCIADO */
-        .profile-container { display: flex; align-items: center; gap: 60px; padding: 60px 8%; background: white; flex-wrap: wrap; }
-        .profile-img { flex: 1; min-width: 300px; }
-        .profile-img img { width: 100%; border-radius: 25px; box-shadow: 15px 15px 0px var(--main-red); }
-        .profile-info { flex: 1.5; min-width: 300px; }
-        .profile-info h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        /* PERFIL AJUSTADO (FOTO PEQUEÑA) */
+        .profile-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            gap: 40px; 
+            padding: 40px 12%; /* Más margen lateral */
+            background: white; 
+            flex-wrap: wrap; 
+        }
+        .profile-img { 
+            flex: 0 0 320px; /* Ancho fijo para que no crezca demasiado */
+        }
+        .profile-img img { 
+            width: 100%; 
+            border-radius: 20px; 
+            box-shadow: 10px 10px 0px var(--main-red); 
+        }
+        .profile-info { 
+            flex: 1; 
+            min-width: 300px; 
+        }
+        .profile-info h2 { font-size: 1.8rem; margin-bottom: 15px; }
         .profile-info h2 span { color: var(--main-red); }
-        .profile-info p { font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 20px; }
+        .profile-info p { font-size: 1rem; line-height: 1.6; color: #444; margin-bottom: 15px; }
 
-        /* PILARES */
-        .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 60px 8%; text-align: center; background: #f9f9f9; }
-        .pillar-card { padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .pillar-card i { font-size: 2.5rem; color: var(--main-red); margin-bottom: 15px; }
-        .pillar-card h3 { margin-bottom: 10px; }
-
-        /* CTA FINAL */
-        .final-cta { text-align: center; padding: 80px 8%; background: #fff; }
-        .btn-ready { background: var(--main-red); color: white; padding: 20px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.2rem; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px rgba(229, 57, 53, 0.3); }
-        .btn-ready:hover { transform: scale(1.05); background: #000; }
-
+        /* PIE DE PÁGINA */
         footer { background: #000; color: white; padding: 40px; text-align: center; }
     </style>
 </head>
@@ -57,16 +70,15 @@
 
     <main>
         <section class="intro-hero">
-            <h1>Bienvenido a LlankanaWasi</h1>
-            <p>Descubre el poder de una lectura con propósito.</p>
+            <h1>¡Hola! Te presento LlankanaWasi</h1>
             <div class="video-wrapper">
-                <iframe src="https://youtu.be/lH9DhQv6nqo" title="Video de Presentación" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/lH9DhQv6nqo?si=LFLL49dZuzOH1PvC" title="Video de Presentación" allowfullscreen></iframe>
             </div>
         </section>
 
         <section class="profile-container">
             <div class="profile-img">
-                <img src="https://i.postimg.cc/BvyJbp5b/Perfil-juab-caguaa.jpg 500x600" alt="Lcdo. Juan Diego Caguana">
+                <img src="https://i.postimg.cc/BvyJbp5b/Perfil-juab-caguaa.jpg" alt="Lcdo. Juan Diego Caguana">
             </div>
             <div class="profile-info">
                 <h2>Soy el <span>Lcdo. Juan Diego Caguana</span></h2>
@@ -74,35 +86,11 @@
                 <p>En este espacio, he diseñado cada recurso didáctico pensando en los retos actuales de la comprensión lectora, utilizando herramientas digitales que facilitan tu aprendizaje.</p>
             </div>
         </section>
-
-        <section class="pillars">
-            <div class="pillar-card">
-                <i class="fas fa-brain"></i>
-                <h3>Análisis Crítico</h3>
-                <p>Aprende a cuestionar y entender el trasfondo de cada lectura.</p>
-            </div>
-            <div class="pillar-card">
-                <i class="fas fa-bolt"></i>
-                <h3>Agilidad Mental</h3>
-                <p>Estrategias para captar ideas principales en tiempo récord.</p>
-            </div>
-            <div class="pillar-card">
-                <i class="fas fa-check-circle"></i>
-                <h3>Resultados</h3>
-                <p>Mejora tu rendimiento académico y profesional significativamente.</p>
-            </div>
-        </section>
-
-        <section class="final-cta">
-            <h2>¿Estás listo para empezar?</h2>
-            <p style="margin-bottom: 30px; color: #666;">El aula virtual te está esperando con todos los materiales preparados.</p>
-            <a href="https://classroom.google.com/c/ODMxNTA3NDg2ODkw?cjc=p4gudiu2" class="btn-ready">¡ACCEDER AL AULA VIRTUAL AHORA!</a>
-        </section>
     </main>
 
     <footer>
         <div class="logo">LLANKANA<span>WASI</span></div>
-        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana. Todos los derechos reservados.</p>
+        <p style="color: #555; margin-top: 15px;">© 2026 Lcdo. Juan Diego Caguana.</p>
     </footer>
 
 </body>
