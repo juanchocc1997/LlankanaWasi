@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión Lectora | Noveno Grado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --main-red: #e53935; --accent-blue: #00b0ff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        header { background: #000; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--main-red); }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: white; }
+        .logo span { color: var(--main-red); }
+        .back-btn { color: #fff; text-decoration: none; font-size: 0.9rem; border: 1px solid #444; padding: 8px 15px; border-radius: 5px; }
+
+        /* HERO DINÁMICO */
+        .mission-hero { padding: 60px 8%; text-align: center; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); }
+        .mission-hero h1 { font-size: 2.5rem; color: #1a1a1a; margin-bottom: 20px; text-transform: uppercase; }
+        .mission-hero p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; color: #444; line-height: 1.6; }
+
+        /* BLOQUES DE OBJETIVO (ESTILO UNIR) */
+        .grid-objetivos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 8%; background: white; }
+        .card-obj { padding: 30px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; position: relative; overflow: hidden; }
+        .card-obj:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-left: 5px solid var(--main-red); }
+        .card-obj i { font-size: 2rem; color: var(--main-red); margin-bottom: 20px; }
+        .card-obj h3 { font-size: 1.3rem; margin-bottom: 10px; color: #222; }
+        .card-obj p { color: #666; font-size: 0.95rem; line-height: 1.5; }
+
+        /* BANNER DE MOTIVACIÓN */
+        .motivation-bar { background: #000; color: white; padding: 40px 8%; text-align: center; }
+        .motivation-bar h2 { font-weight: 400; font-size: 1.4rem; }
+        .motivation-bar b { color: var(--main-red); }
+
+        footer { background: #000; color: white; padding: 40px; text-align: center; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">LLANKANA<span>WASI</span></a>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Volver</a>
+    </header>
+
+    <section class="mission-hero">
+        <h1>Misión: Noveno Grado</h1>
+        <p>¿Sabías que leer no es solo repetir palabras? Es descubrir secretos, ganar argumentos y entender el mundo digital en el que vives. En LlankanaWasi, convertimos la lectura en tu mejor herramienta de éxito.</p>
+    </section>
+
+    <section class="grid-objetivos">
+        <div class="card-obj">
+            <i class="fas fa-rocket"></i>
+            <h3>Supera el Nivel</h3>
+            <p>Pasaremos de solo "leer por encima" a comprender profundamente textos literarios y científicos complejos para noveno grado.</p>
+        </div>
+
+        <div class="card-obj">
+            <i class="fas fa-comment-dots"></i>
+            <h3>Tu Opinión Cuenta</h3>
+            <p>Desarrolla el pensamiento crítico para que puedas debatir y defender tus ideas basándote en lo que has leído.</p>
+        </div>
+
+        <div class="card-obj">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Lectura Digital</h3>
+            <p>Aprende a diferenciar noticias reales de las falsas (Fake News) en redes sociales y sitios web.</p>
+        </div>
+    </section>
+
+    <section class="motivation-bar">
+        <h2>"Un estudiante que <b>comprende</b> lo que lee, es un estudiante que <b>domina</b> su futuro."</h2>
+    </section>
+
+    <footer>
+        <div class="logo">LLANKANA<span>WASI</span></div>
+        <p style="color: #555; margin-top: 15px; font-size: 0.8rem;">© 2026 Lcdo. Juan Diego Caguana.</p>
+    </footer>
+
+</body>
+</html>
